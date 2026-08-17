@@ -75,27 +75,27 @@ export default function Header({ active }) {
         </div>
       </div>
 
-      <nav className="hidden items-center gap-8 text-sm font-semibold tracking-[0.3px] lg:flex">
+      <nav className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm font-semibold tracking-[0.3px] lg:flex">
         {NAV_ITEMS.map((item) => (
           <Link
             key={item.label}
             href={item.href}
             className={
               item.label === active
-                ? "border-b-2 border-[#FFB000] pb-1 text-[#C98700]"
-                : "text-[#252525] hover:text-[#E56D00]"
+                ? "pointer-events-auto border-b-2 border-[#FFB000] pb-1 text-[#C98700]"
+                : "pointer-events-auto text-[#252525] hover:text-[#E56D00]"
             }
           >
             {item.label}
           </Link>
         ))}
-        <Link
-          href="/book"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#FFB000] to-[#FF7A00] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(255,176,0,0.35)] hover:text-white"
-        >
-          Book Your Event →
-        </Link>
       </nav>
+      <Link
+        href="/book"
+        className="hidden items-center gap-2 rounded-full bg-gradient-to-br from-[#FFB000] to-[#FF7A00] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(255,176,0,0.35)] hover:text-white lg:inline-flex"
+      >
+        Book Your Event →
+      </Link>
     </header>
   );
 }
