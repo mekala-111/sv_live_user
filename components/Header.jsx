@@ -13,21 +13,14 @@ const NAV_ITEMS = [
 export default function Header({ active }) {
   return (
     <header className="relative z-50 flex items-center justify-between border-b border-[#F0E2CC] bg-[#FFFDF9] px-12 py-[18px] max-lg:px-6 max-sm:px-4">
-      <Link href="/" className="flex items-center gap-3">
+      <Link href="/" className="shrink-0">
         <Image
           src="/uploads/Logo.png"
           alt="SV Live Events"
-          width={48}
-          height={48}
-          className="h-12 w-12 rounded-full object-cover shadow-[0_0_0_2px_#FFB000] max-sm:h-10 max-sm:w-10"
+          width={56}
+          height={56}
+          className="h-14 w-14 rounded-full object-cover max-sm:h-12 max-sm:w-12"
         />
-        <div className="font-heading text-xl font-bold leading-[1.1] tracking-[0.5px] text-[#252525]">
-          SV LIVE
-          <br />
-          <span className="text-xs font-medium tracking-[2px] text-[#6B6B6B]">
-            EVENTS
-          </span>
-        </div>
       </Link>
 
       <input id="nav-toggle" type="checkbox" className="peer sr-only" />

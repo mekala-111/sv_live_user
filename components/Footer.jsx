@@ -6,16 +6,16 @@ export default function Footer() {
     <footer className="border-t border-[#F0E2CC] bg-[#FFF4E8] px-12 pb-8 pt-16 max-lg:px-6 max-sm:px-4">
       <div className="mb-12 grid grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-12 max-lg:grid-cols-2 max-sm:grid-cols-1">
         <div>
-          <div className="mb-4 flex items-center gap-3">
+          <div className="mb-4 flex items-center gap-2.5">
             <Image
               src="/uploads/Logo.png"
               alt="SV Live Events"
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-full object-cover"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full object-cover"
             />
-            <div className="font-heading text-[17px] font-bold">
-              SV LIVE EVENTS
+            <div className="font-heading text-[17px] font-semibold">
+              SV Live Events
             </div>
           </div>
           <p className="max-w-[280px] text-[13.5px] leading-relaxed text-[#6B6B6B]">
