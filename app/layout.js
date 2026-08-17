@@ -17,6 +17,9 @@ export const metadata = {
   title: "SV Live Events",
   description:
     "Multi-camera production, drone cinematography, LED walls and professional live streaming for weddings, concerts, corporate events and conferences.",
+  icons: {
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
+  },
 };
 
 export default function RootLayout({ children }) {
