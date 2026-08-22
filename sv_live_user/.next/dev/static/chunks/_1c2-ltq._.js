@@ -4153,7 +4153,8 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
     const gallery = media.filter((m)=>m?.fileUrl || m?.thumbnailUrl);
     const galleryUrls = gallery.map((m)=>m.thumbnailUrl || m.fileUrl).filter(Boolean);
     const subEvents = Array.isArray(event?.subEvents) ? event.subEvents.filter((s)=>s?.title) : [];
-    const invitationCard = event?.invitationCard ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$lib$2f$event$2d$helpers$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["coverSrc"])(event.invitationCard) : DEFAULT_INVITE;
+    const showInvitationSection = sections.showInvitationCard !== false && event?.showInvitationCard !== false;
+    const invitationCard = showInvitationSection ? event?.invitationCard ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$lib$2f$event$2d$helpers$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["coverSrc"])(event.invitationCard) : DEFAULT_INVITE : null;
     const countdown = useCountdown((0, __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$lib$2f$event$2d$helpers$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["resolveCountdownTarget"])(event));
     const shareUrl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
         "WeddingThemeTraditional.useMemo[shareUrl]": ()=>{
@@ -4415,7 +4416,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                     alt: ""
                 }, void 0, false, {
                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                    lineNumber: 372,
+                    lineNumber: 378,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4428,7 +4429,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                             alt: item.title
                         }, void 0, false, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 376,
+                            lineNumber: 382,
                             columnNumber: 13
                         }, this) : isHighlight && !isFirst ? // eslint-disable-next-line @next/next/no-img-element
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -4437,47 +4438,47 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                             alt: ""
                         }, void 0, false, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 379,
+                            lineNumber: 385,
                             columnNumber: 13
                         }, this) : null,
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                             children: item.title
                         }, void 0, false, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 381,
+                            lineNumber: 387,
                             columnNumber: 11
                         }, this),
                         item.date ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EventRow, {
                             children: item.date
                         }, void 0, false, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 382,
+                            lineNumber: 388,
                             columnNumber: 24
                         }, this) : null,
                         item.time ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TimeRow, {
                             children: item.time
                         }, void 0, false, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 383,
+                            lineNumber: 389,
                             columnNumber: 24
                         }, this) : null,
                         item.place ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PlaceRow, {
                             children: item.place
                         }, void 0, false, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 384,
+                            lineNumber: 390,
                             columnNumber: 25
                         }, this) : null
                     ]
                 }, void 0, true, {
                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                    lineNumber: 373,
+                    lineNumber: 379,
                     columnNumber: 9
                 }, this)
             ]
         }, `${item.title}-${index}`, true, {
             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-            lineNumber: 370,
+            lineNumber: 376,
             columnNumber: 7
         }, this);
     }
@@ -4488,7 +4489,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                 href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Peddana&family=Playfair+Display:wght@500;600;700&family=Ramabhadra&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap"
             }, void 0, false, {
                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                lineNumber: 392,
+                lineNumber: 398,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("link", {
@@ -4496,7 +4497,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                 href: `${assetBase.replace(/\/$/, "")}/style.css`
             }, void 0, false, {
                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                lineNumber: 396,
+                lineNumber: 402,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -4514,17 +4515,17 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                         values: "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  5 5 5 0 -0.18"
                     }, void 0, false, {
                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                        lineNumber: 400,
+                        lineNumber: 406,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                    lineNumber: 399,
+                    lineNumber: 405,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                lineNumber: 398,
+                lineNumber: 404,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4536,7 +4537,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                         children: "Skip to invitation"
                     }, void 0, false, {
                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                        lineNumber: 405,
+                        lineNumber: 411,
                         columnNumber: 9
                     }, this),
                     !introGone ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4551,7 +4552,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                     alt: ""
                                 }, void 0, false, {
                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                    lineNumber: 413,
+                                    lineNumber: 419,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4565,12 +4566,12 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: "Lord Ganesha"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 417,
+                                                lineNumber: 423,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 415,
+                                            lineNumber: 421,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4578,7 +4579,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             children: "శుభమస్తు"
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 419,
+                                            lineNumber: 425,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4586,7 +4587,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             children: "|| శుభకార్యమస్తు ||"
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 420,
+                                            lineNumber: 426,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -4594,7 +4595,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             children: title
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 421,
+                                            lineNumber: 427,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4603,23 +4604,23 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 423,
+                                                    lineNumber: 429,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 424,
+                                                    lineNumber: 430,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 425,
+                                                    lineNumber: 431,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 422,
+                                            lineNumber: 428,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4630,7 +4631,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                     children: left
                                                 }, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 428,
+                                                    lineNumber: 434,
                                                     columnNumber: 19
                                                 }, this),
                                                 right ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -4643,12 +4644,12 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 d: "M12 20s-7.2-4.4-9.4-8.2C.8 8.8 2.2 5 6 5c2.1 0 3.4 1.2 4 2.2C10.6 6.2 11.9 5 14 5c3.8 0 5.2 3.8 3.4 6.8C19.2 15.6 12 20 12 20Z"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 432,
+                                                                lineNumber: 438,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 431,
+                                                            lineNumber: 437,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4656,19 +4657,19 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             children: right
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 434,
+                                                            lineNumber: 440,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 430,
+                                                    lineNumber: 436,
                                                     columnNumber: 21
                                                 }, this) : null
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 427,
+                                            lineNumber: 433,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4676,7 +4677,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             children: tagline
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 438,
+                                            lineNumber: 444,
                                             columnNumber: 17
                                         }, this),
                                         dateDots ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4690,12 +4691,12 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         d: "M12 3.2c.6 2.4 1.4 4.2 3.8 5-2.4.8-3.2 2.6-3.8 5-.6-2.4-1.4-4.2-3.8-5 2.4-.8 3.2-2.6 3.8-5Z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 442,
+                                                        lineNumber: 448,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 441,
+                                                    lineNumber: 447,
                                                     columnNumber: 21
                                                 }, this),
                                                 dateDots,
@@ -4707,18 +4708,18 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         d: "M12 3.2c.6 2.4 1.4 4.2 3.8 5-2.4.8-3.2 2.6-3.8 5-.6-2.4-1.4-4.2-3.8-5 2.4-.8 3.2-2.6 3.8-5Z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 446,
+                                                        lineNumber: 452,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 445,
+                                                    lineNumber: 451,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 440,
+                                            lineNumber: 446,
                                             columnNumber: 19
                                         }, this) : null,
                                         (eventTime || place) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4739,7 +4740,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                     strokeWidth: "1.7"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 455,
+                                                                    lineNumber: 461,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -4750,25 +4751,25 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                     strokeLinecap: "round"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 456,
+                                                                    lineNumber: 462,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 454,
+                                                            lineNumber: 460,
                                                             columnNumber: 25
                                                         }, this),
                                                         eventTime
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 453,
+                                                    lineNumber: 459,
                                                     columnNumber: 23
                                                 }, this) : null,
                                                 eventTime && place ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 461,
+                                                    lineNumber: 467,
                                                     columnNumber: 43
                                                 }, this) : null,
                                                 place ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4784,7 +4785,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                     strokeWidth: "1.7"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 465,
+                                                                    lineNumber: 471,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -4796,26 +4797,26 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                     strokeWidth: "1.7"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 466,
+                                                                    lineNumber: 472,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 464,
+                                                            lineNumber: 470,
                                                             columnNumber: 25
                                                         }, this),
                                                         venueName.toUpperCase()
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 463,
+                                                    lineNumber: 469,
                                                     columnNumber: 23
                                                 }, this) : null
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 451,
+                                            lineNumber: 457,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4825,24 +4826,24 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             children: "VIEW INVITATION →"
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 473,
+                                            lineNumber: 479,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                    lineNumber: 414,
+                                    lineNumber: 420,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                            lineNumber: 411,
+                            lineNumber: 417,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                        lineNumber: 410,
+                        lineNumber: 416,
                         columnNumber: 11
                     }, this) : null,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4855,7 +4856,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 "aria-hidden": "true"
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 482,
+                                lineNumber: 488,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -4870,27 +4871,27 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 className: "garland g-a"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 486,
+                                                lineNumber: 492,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "garland g-b"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 487,
+                                                lineNumber: 493,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "garland g-c"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 488,
+                                                lineNumber: 494,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 485,
+                                        lineNumber: 491,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -4899,7 +4900,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: "Lord Shiva and Goddess Parvati"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 491,
+                                        lineNumber: 497,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4907,7 +4908,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "॥ శుభమస్తు ॥"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 492,
+                                        lineNumber: 498,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4915,7 +4916,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "॥ సకల శుభమస్తు ॥"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 493,
+                                        lineNumber: 499,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4926,7 +4927,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: left
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 495,
+                                                lineNumber: 501,
                                                 columnNumber: 15
                                             }, this),
                                             right ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -4936,7 +4937,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         children: "♡"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 498,
+                                                        lineNumber: 504,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4944,19 +4945,19 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         children: right
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 499,
+                                                        lineNumber: 505,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 497,
+                                                lineNumber: 503,
                                                 columnNumber: 17
                                             }, this) : null
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 494,
+                                        lineNumber: 500,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4964,7 +4965,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: tagline
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 503,
+                                        lineNumber: 509,
                                         columnNumber: 13
                                     }, this),
                                     sections.showCouplePhotos !== false ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4979,7 +4980,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         mono: (left || "B").slice(0, 1)
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 507,
+                                                        lineNumber: 513,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4988,13 +4989,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         children: "🌸🌼🌸"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 508,
+                                                        lineNumber: 514,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 506,
+                                                lineNumber: 512,
                                                 columnNumber: 17
                                             }, this),
                                             right ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5006,7 +5007,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         mono: right.slice(0, 1)
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 514,
+                                                        lineNumber: 520,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5015,19 +5016,19 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         children: "🌸🌼🌸"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 515,
+                                                        lineNumber: 521,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 513,
+                                                lineNumber: 519,
                                                 columnNumber: 19
                                             }, this) : null
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 505,
+                                        lineNumber: 511,
                                         columnNumber: 15
                                     }, this) : null,
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5051,7 +5052,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 strokeWidth: "1.8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 526,
+                                                                lineNumber: 532,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -5061,20 +5062,20 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 strokeWidth: "1.8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 527,
+                                                                lineNumber: 533,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 525,
+                                                        lineNumber: 531,
                                                         columnNumber: 19
                                                     }, this),
                                                     dateDots
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 524,
+                                                lineNumber: 530,
                                                 columnNumber: 17
                                             }, this) : null,
                                             eventTime ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5093,7 +5094,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 strokeWidth: "1.8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 535,
+                                                                lineNumber: 541,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -5104,20 +5105,20 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 strokeLinecap: "round"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 536,
+                                                                lineNumber: 542,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 534,
+                                                        lineNumber: 540,
                                                         columnNumber: 19
                                                     }, this),
                                                     eventTime
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 533,
+                                                lineNumber: 539,
                                                 columnNumber: 17
                                             }, this) : null,
                                             place ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5134,7 +5135,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 strokeWidth: "1.8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 544,
+                                                                lineNumber: 550,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -5146,26 +5147,26 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 strokeWidth: "1.8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 545,
+                                                                lineNumber: 551,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 543,
+                                                        lineNumber: 549,
                                                         columnNumber: 19
                                                     }, this),
                                                     venueName
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 542,
+                                                lineNumber: 548,
                                                 columnNumber: 17
                                             }, this) : null
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 522,
+                                        lineNumber: 528,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5173,7 +5174,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "✦ 🪷 ✦"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 551,
+                                        lineNumber: 557,
                                         columnNumber: 13
                                     }, this),
                                     showLive && isLive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5181,20 +5182,20 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 554,
+                                                lineNumber: 560,
                                                 columnNumber: 17
                                             }, this),
                                             " LIVE NOW"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 553,
+                                        lineNumber: 559,
                                         columnNumber: 15
                                     }, this) : null
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 484,
+                                lineNumber: 490,
                                 columnNumber: 11
                             }, this),
                             sections.showCountdown !== false && countdown ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5207,7 +5208,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 562,
+                                        lineNumber: 568,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5218,7 +5219,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "✦ 🪷 ✦"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 564,
+                                                lineNumber: 570,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -5226,14 +5227,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "❦ వివాహానికి మిగిలిన సమయం ❦"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 565,
+                                                lineNumber: 571,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "rule"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 566,
+                                                lineNumber: 572,
                                                 columnNumber: 17
                                             }, this),
                                             countdown.ended ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5241,7 +5242,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "శుభమస్తు ❤️"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 568,
+                                                lineNumber: 574,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "count-row",
@@ -5270,32 +5271,32 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                 children: "🪷"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 578,
+                                                                lineNumber: 584,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                                                 children: pad(value)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 579,
+                                                                lineNumber: 585,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
                                                                 children: label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 580,
+                                                                lineNumber: 586,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, label, true, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 577,
+                                                        lineNumber: 583,
                                                         columnNumber: 23
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 570,
+                                                lineNumber: 576,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5304,37 +5305,37 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 586,
+                                                        lineNumber: 592,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "♥"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 587,
+                                                        lineNumber: 593,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 588,
+                                                        lineNumber: 594,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 585,
+                                                lineNumber: 591,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 563,
+                                        lineNumber: 569,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 560,
+                                lineNumber: 566,
                                 columnNumber: 13
                             }, this) : null,
                             showLive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5347,7 +5348,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 597,
+                                        lineNumber: 603,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5358,7 +5359,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "🪷"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 599,
+                                                lineNumber: 605,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -5366,14 +5367,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "❖ Live Streaming ❖"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 600,
+                                                lineNumber: 606,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "rule"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 601,
+                                                lineNumber: 607,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5386,7 +5387,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$components$2f$WeddingThemeTraditional$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].player
                                                 }, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 604,
+                                                    lineNumber: 610,
                                                     columnNumber: 21
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$components$2f$WeddingThemeTraditional$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].poster,
@@ -5407,7 +5408,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$components$2f$WeddingThemeTraditional$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].posterShade
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 625,
+                                                            lineNumber: 631,
                                                             columnNumber: 23
                                                         }, this),
                                                         embed ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5417,25 +5418,25 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             children: "Watch Live"
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 627,
+                                                            lineNumber: 633,
                                                             columnNumber: 25
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$components$2f$WeddingThemeTraditional$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].streamStatusMuted,
                                                             children: "Stream starting soon"
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 631,
+                                                            lineNumber: 637,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 612,
+                                                    lineNumber: 618,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 602,
+                                                lineNumber: 608,
                                                 columnNumber: 17
                                             }, this),
                                             embed && event?.showWatchLive !== false ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5448,7 +5449,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         children: watching ? "Watching live" : "Watch Live"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 638,
+                                                        lineNumber: 644,
                                                         columnNumber: 21
                                                     }, this),
                                                     event?.showSocialShare !== false && shareUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5458,13 +5459,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         children: "Share on WhatsApp"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 642,
+                                                        lineNumber: 648,
                                                         columnNumber: 23
                                                     }, this) : null
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 637,
+                                                lineNumber: 643,
                                                 columnNumber: 19
                                             }, this) : event?.showSocialShare !== false && shareUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$themes$2f$components$2f$WeddingThemeTraditional$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].centerActions,
@@ -5475,24 +5476,24 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                     children: "Share on WhatsApp"
                                                 }, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 649,
+                                                    lineNumber: 655,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 648,
+                                                lineNumber: 654,
                                                 columnNumber: 19
                                             }, this) : null
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 598,
+                                        lineNumber: 604,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 595,
+                                lineNumber: 601,
                                 columnNumber: 13
                             }, this) : null,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5505,7 +5506,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 660,
+                                        lineNumber: 666,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5517,7 +5518,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: "Lord Ganesha"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 663,
+                                                lineNumber: 669,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -5525,33 +5526,33 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "Divine Blessings"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 664,
+                                                lineNumber: 670,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "rule"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 665,
+                                                lineNumber: 671,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 children: event?.description || DEFAULT_BLESSING
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 666,
+                                                lineNumber: 672,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 661,
+                                        lineNumber: 667,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 658,
+                                lineNumber: 664,
                                 columnNumber: 11
                             }, this),
                             sections.showSubEvents !== false && event?.showSubEvents !== false && subEvents.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5564,7 +5565,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 673,
+                                        lineNumber: 679,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5576,25 +5577,25 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 676,
+                                                        lineNumber: 682,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "🪷"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 677,
+                                                        lineNumber: 683,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 678,
+                                                        lineNumber: 684,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 675,
+                                                lineNumber: 681,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5606,14 +5607,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         alt: ""
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 682,
+                                                        lineNumber: 688,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                         children: "కార్యక్రమములు"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 683,
+                                                        lineNumber: 689,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -5622,13 +5623,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         alt: ""
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 685,
+                                                        lineNumber: 691,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 680,
+                                                lineNumber: 686,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5636,7 +5637,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: subEvents.map(renderSubEventCard)
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 687,
+                                                lineNumber: 693,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5647,20 +5648,20 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         className: "dot"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 689,
+                                                        lineNumber: 695,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "dot dark"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 690,
+                                                        lineNumber: 696,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 688,
+                                                lineNumber: 694,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5669,7 +5670,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 693,
+                                                        lineNumber: 699,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -5677,30 +5678,30 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         alt: ""
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 695,
+                                                        lineNumber: 701,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 696,
+                                                        lineNumber: 702,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 692,
+                                                lineNumber: 698,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 674,
+                                        lineNumber: 680,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 671,
+                                lineNumber: 677,
                                 columnNumber: 13
                             }, this) : null,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5713,7 +5714,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 704,
+                                        lineNumber: 710,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5724,14 +5725,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "❦ Our Journey ❦"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 706,
+                                                lineNumber: 712,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "rule"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 707,
+                                                lineNumber: 713,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5747,20 +5748,20 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                         children: step.glyph
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                        lineNumber: 712,
+                                                                        lineNumber: 718,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     index < storySteps.length - 1 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "rail-line"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                        lineNumber: 713,
+                                                                        lineNumber: 719,
                                                                         columnNumber: 56
                                                                     }, this) : null
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 711,
+                                                                lineNumber: 717,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5770,7 +5771,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                         children: step.title
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                        lineNumber: 716,
+                                                                        lineNumber: 722,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5781,46 +5782,46 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                        lineNumber: 717,
+                                                                        lineNumber: 723,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                         children: step.text
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                        lineNumber: 718,
+                                                                        lineNumber: 724,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                lineNumber: 715,
+                                                                lineNumber: 721,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, step.title, true, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 710,
+                                                        lineNumber: 716,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 708,
+                                                lineNumber: 714,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 705,
+                                        lineNumber: 711,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 702,
+                                lineNumber: 708,
                                 columnNumber: 11
                             }, this),
-                            sections.showInvitationCard !== false && invitationCard ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                            showInvitationSection && invitationCard ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                                 className: "section invite",
                                 id: "invitation",
                                 children: [
@@ -5830,7 +5831,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 729,
+                                        lineNumber: 735,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5841,7 +5842,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: "మా వివాహ ఆహ్వానం"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 731,
+                                                lineNumber: 737,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -5856,7 +5857,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         alt: ""
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 739,
+                                                        lineNumber: 745,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -5865,13 +5866,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                         alt: "Wedding invitation"
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 741,
+                                                        lineNumber: 747,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 732,
+                                                lineNumber: 738,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5879,19 +5880,19 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: inviteOpen ? "OPEN INVITATION" : "TAP TO OPEN INVITATION"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 743,
+                                                lineNumber: 749,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 730,
+                                        lineNumber: 736,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 727,
+                                lineNumber: 733,
                                 columnNumber: 13
                             }, this) : null,
                             sections.showGallery !== false && galleryUrls.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5906,14 +5907,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "Moments"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 750,
+                                        lineNumber: 756,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "rule"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 753,
+                                        lineNumber: 759,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5931,23 +5932,23 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                     loading: "lazy"
                                                 }, void 0, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 766,
+                                                    lineNumber: 772,
                                                     columnNumber: 21
                                                 }, this)
                                             }, `${src}-${idx}`, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 756,
+                                                lineNumber: 762,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 754,
+                                        lineNumber: 760,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 749,
+                                lineNumber: 755,
                                 columnNumber: 13
                             }, this) : null,
                             place ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -5964,7 +5965,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 777,
+                                                lineNumber: 783,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -5973,7 +5974,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 779,
+                                                lineNumber: 785,
                                                 columnNumber: 17
                                             }, this),
                                             [
@@ -5989,13 +5990,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                     alt: ""
                                                 }, n, false, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 782,
+                                                    lineNumber: 788,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 775,
+                                        lineNumber: 781,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6007,14 +6008,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 787,
+                                                lineNumber: 793,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                 children: "వేదిక"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 788,
+                                                lineNumber: 794,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6023,13 +6024,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 790,
+                                                lineNumber: 796,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 785,
+                                        lineNumber: 791,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6038,23 +6039,23 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 793,
+                                                lineNumber: 799,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 794,
+                                                lineNumber: 800,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 795,
+                                                lineNumber: 801,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 792,
+                                        lineNumber: 798,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6066,7 +6067,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 799,
+                                                lineNumber: 805,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6075,7 +6076,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 801,
+                                                lineNumber: 807,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6084,7 +6085,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 803,
+                                                lineNumber: 809,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6093,14 +6094,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 805,
+                                                lineNumber: 811,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                 children: venueName
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 806,
+                                                lineNumber: 812,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6108,7 +6109,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 "aria-hidden": "true"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 807,
+                                                lineNumber: 813,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6122,19 +6123,19 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             d: "M12 2c-3.9 0-7 3-7 7 0 5.3 7 13 7 13s7-7.7 7-13c0-4-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 810,
+                                                            lineNumber: 816,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 809,
+                                                        lineNumber: 815,
                                                         columnNumber: 19
                                                     }, this),
                                                     place
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 808,
+                                                lineNumber: 814,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -6151,25 +6152,25 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             d: "M12 2c-3.9 0-7 3-7 7 0 5.3 7 13 7 13s7-7.7 7-13c0-4-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 816,
+                                                            lineNumber: 822,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 815,
+                                                        lineNumber: 821,
                                                         columnNumber: 19
                                                     }, this),
                                                     "GET DIRECTIONS"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 814,
+                                                lineNumber: 820,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 797,
+                                        lineNumber: 803,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -6180,13 +6181,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "Add to Google Calendar"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 821,
+                                        lineNumber: 827,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 774,
+                                lineNumber: 780,
                                 columnNumber: 13
                             }, this) : null,
                             showHosts ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -6203,7 +6204,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 831,
+                                                lineNumber: 837,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6212,7 +6213,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 833,
+                                                lineNumber: 839,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6221,7 +6222,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 835,
+                                                lineNumber: 841,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6230,7 +6231,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 837,
+                                                lineNumber: 843,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6239,13 +6240,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 839,
+                                                lineNumber: 845,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 829,
+                                        lineNumber: 835,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
@@ -6257,7 +6258,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 843,
+                                                lineNumber: 849,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6266,7 +6267,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 845,
+                                                lineNumber: 851,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6275,7 +6276,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 847,
+                                                lineNumber: 853,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6284,7 +6285,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 849,
+                                                lineNumber: 855,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6293,14 +6294,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 851,
+                                                lineNumber: 857,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                 children: "మీ ఆగమనాభిలాషులు"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 852,
+                                                lineNumber: 858,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6309,23 +6310,23 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 854,
+                                                        lineNumber: 860,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 855,
+                                                        lineNumber: 861,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 856,
+                                                        lineNumber: 862,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 853,
+                                                lineNumber: 859,
                                                 columnNumber: 17
                                             }, this),
                                             (hostImage1 || hostImage2) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6338,12 +6339,12 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             alt: "Host"
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 863,
+                                                            lineNumber: 869,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 861,
+                                                        lineNumber: 867,
                                                         columnNumber: 23
                                                     }, this) : null,
                                                     hostImage2 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6353,18 +6354,18 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             alt: "Host"
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 869,
+                                                            lineNumber: 875,
                                                             columnNumber: 25
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                        lineNumber: 867,
+                                                        lineNumber: 873,
                                                         columnNumber: 23
                                                     }, this) : null
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 859,
+                                                lineNumber: 865,
                                                 columnNumber: 19
                                             }, this),
                                             hostCopy.names ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6372,7 +6373,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: hostCopy.names
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 874,
+                                                lineNumber: 880,
                                                 columnNumber: 35
                                             }, this) : null,
                                             hostCopy.place ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6380,19 +6381,19 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 children: hostCopy.place
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 875,
+                                                lineNumber: 881,
                                                 columnNumber: 35
                                             }, this) : null
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 841,
+                                        lineNumber: 847,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 828,
+                                lineNumber: 834,
                                 columnNumber: 13
                             }, this) : null,
                             familyLines.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -6409,7 +6410,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 884,
+                                                lineNumber: 890,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6418,7 +6419,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 886,
+                                                lineNumber: 892,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6427,7 +6428,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 888,
+                                                lineNumber: 894,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6436,13 +6437,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 890,
+                                                lineNumber: 896,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 882,
+                                        lineNumber: 888,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
@@ -6454,7 +6455,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 894,
+                                                lineNumber: 900,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6463,7 +6464,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 896,
+                                                lineNumber: 902,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6472,7 +6473,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 898,
+                                                lineNumber: 904,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6481,14 +6482,14 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 900,
+                                                lineNumber: 906,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                 children: "Family members"
                                             }, void 0, false, {
                                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                lineNumber: 901,
+                                                lineNumber: 907,
                                                 columnNumber: 17
                                             }, this),
                                             familyLines.map((line)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6499,48 +6500,48 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 905,
+                                                                    lineNumber: 911,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 906,
+                                                                    lineNumber: 912,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("i", {}, void 0, false, {
                                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                                    lineNumber: 907,
+                                                                    lineNumber: 913,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 904,
+                                                            lineNumber: 910,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             children: line
                                                         }, void 0, false, {
                                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                            lineNumber: 909,
+                                                            lineNumber: 915,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, line, true, {
                                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                                    lineNumber: 903,
+                                                    lineNumber: 909,
                                                     columnNumber: 19
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 892,
+                                        lineNumber: 898,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 881,
+                                lineNumber: 887,
                                 columnNumber: 13
                             }, this) : null,
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -6554,7 +6555,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 917,
+                                        lineNumber: 923,
                                         columnNumber: 13
                                     }, this),
                                     dateBullets ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6562,7 +6563,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: dateBullets
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 921,
+                                        lineNumber: 927,
                                         columnNumber: 28
                                     }, this) : null,
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6570,7 +6571,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "With love, blessings & happiness"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 922,
+                                        lineNumber: 928,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6578,13 +6579,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                         children: "॥ శుభమస్తు ॥"
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 923,
+                                        lineNumber: 929,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 916,
+                                lineNumber: 922,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6597,12 +6598,12 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                     children: musicPlaying ? "❚❚" : "♪"
                                 }, void 0, false, {
                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                    lineNumber: 928,
+                                    lineNumber: 934,
                                     columnNumber: 15
                                 }, this) : null
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 926,
+                                lineNumber: 932,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6617,12 +6618,12 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             alt: ""
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 937,
+                                            lineNumber: 943,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 935,
+                                        lineNumber: 941,
                                         columnNumber: 15
                                     }, this) : null,
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6635,18 +6636,18 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                             alt: ""
                                         }, void 0, false, {
                                             fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                            lineNumber: 947,
+                                            lineNumber: 953,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                        lineNumber: 940,
+                                        lineNumber: 946,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 933,
+                                lineNumber: 939,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
@@ -6656,13 +6657,13 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 onError: ()=>setMusicAvailable(false)
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 951,
+                                lineNumber: 957,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                        lineNumber: 481,
+                        lineNumber: 487,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6683,7 +6684,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 children: "✕"
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 964,
+                                lineNumber: 970,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
@@ -6693,18 +6694,18 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                     alt: "Wedding invitation"
                                 }, void 0, false, {
                                     fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                    lineNumber: 969,
+                                    lineNumber: 975,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 967,
+                                lineNumber: 973,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                        lineNumber: 954,
+                        lineNumber: 960,
                         columnNumber: 9
                     }, this),
                     galleryUrls.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6725,7 +6726,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 children: "✕"
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 984,
+                                lineNumber: 990,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6736,7 +6737,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 children: "‹"
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 987,
+                                lineNumber: 993,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -6745,7 +6746,7 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 alt: "Wedding moment"
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 996,
+                                lineNumber: 1002,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -6756,25 +6757,25 @@ function WeddingThemeTraditional({ event, youtube, media = [], branding, theme, 
                                 children: "›"
                             }, void 0, false, {
                                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                                lineNumber: 997,
+                                lineNumber: 1003,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                        lineNumber: 974,
+                        lineNumber: 980,
                         columnNumber: 11
                     }, this) : null
                 ]
             }, void 0, true, {
                 fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-                lineNumber: 404,
+                lineNumber: 410,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/themes/components/WeddingThemeTraditional.jsx",
-        lineNumber: 391,
+        lineNumber: 397,
         columnNumber: 5
     }, this);
 }
