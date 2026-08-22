@@ -483,8 +483,8 @@ function formatEventDateTime(dateValue, timeValue) {
 }
 function youtubeEmbedUrl(youtube) {
     if (!youtube) return null;
-    const params = "autoplay=1&rel=0&modestbranding=1&playsinline=1";
-    const id = youtube.videoId || extractIdFromUrl(youtube.liveUrl);
+    const params = "autoplay=0&rel=0&modestbranding=1&playsinline=1";
+    const id = extractIdFromUrl(youtube.liveUrl) || youtube.videoId || null;
     if (id) return `https://www.youtube.com/embed/${id}?${params}`;
     return null;
 }
@@ -6959,8 +6959,9 @@ function formatEventDateTime(dateValue, timeValue) {
 }
 function youtubeEmbedUrl(youtube) {
     if (!youtube) return null;
-    const params = "autoplay=1&rel=0&modestbranding=1&playsinline=1";
-    const id = youtube.videoId || extractIdFromUrl(youtube.liveUrl);
+    const params = "autoplay=0&rel=0&modestbranding=1&playsinline=1";
+    // Prefer liveUrl so a stale/wrong videoId (e.g. old teaser) cannot override the live stream.
+    const id = extractIdFromUrl(youtube.liveUrl) || youtube.videoId || null;
     if (id) return `https://www.youtube.com/embed/${id}?${params}`;
     return null;
 }
