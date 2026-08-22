@@ -1,9 +1,73 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
+import { publicApi } from "@/lib/api";
+import { cacheUnlockedEvent } from "@/lib/event-helpers";
 
-export const dynamicParams = true;
+export default function PrivateEventAccessPage() {
+  const params = useParams();
+  const router = useRouter();
+  const code = params?.code;
 
-export default async function PrivateEventAccessPage({ params }) {
-  await params;
+  const [eventName, setEventName] = useState("Private Event");
+  const [slug, setSlug] = useState(null);
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!code) return;
+    let cancelled = false;
+
+    (async () => {
+      setLoading(true);
+      setError("");
+      try {
+        let data;
+        try {
+          data = await publicApi.getEvent(code);
+        } catch {
+          data = await publicApi.watchByCode(code);
+        }
+        if (cancelled) return;
+
+        const eventSlug = data?.event?.eventSlug || code;
+        setSlug(eventSlug);
+        setEventName(data?.event?.eventName || "Private Event");
+
+        if (!data?.requiresPassword && eventSlug) {
+          router.replace(`/event/${eventSlug}`);
+        }
+      } catch (err) {
+        if (!cancelled) setError(err.message || "Event not found");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [code, router]);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!slug || !password) return;
+    setSubmitting(true);
+    setError("");
+    try {
+      const data = await publicApi.unlockEvent(slug, password);
+      cacheUnlockedEvent(slug, data);
+      router.push(`/event/${slug}`);
+    } catch (err) {
+      setError(err.message || "Incorrect password");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -27,24 +91,31 @@ export default async function PrivateEventAccessPage({ params }) {
           PRIVATE EVENT
         </div>
         <h1 className="font-heading m-0 mb-2 text-[22px] font-bold text-[#252525]">
-          Rahul & Priya — Wedding
+          {loading ? "Loading…" : eventName}
         </h1>
         <p className="m-0 mb-7 text-[13.5px] text-[#6B6B6B]">
           Enter the event PIN shared by the host to watch.
         </p>
-        <input
-          type="text"
-          placeholder="Enter Event PIN"
-          maxLength={6}
-          disabled
-          className="mb-4 w-full rounded-xl border border-[#E0D3BC] p-3.5 text-center text-lg font-bold tracking-[4px] text-[#252525]"
-        />
-        <button
-          type="button"
-          className="w-full rounded-full bg-[#FF7A00] p-3.5 text-[15px] font-bold text-white"
-        >
-          Watch Event →
-        </button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="password"
+            placeholder="Enter Event PIN"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="mb-4 w-full rounded-xl border border-[#E0D3BC] p-3.5 text-center text-lg font-bold tracking-[4px] text-[#252525]"
+            required
+          />
+          {error ? (
+            <p className="mb-3 text-sm text-[#F52222]">{error}</p>
+          ) : null}
+          <button
+            type="submit"
+            disabled={submitting || loading || !slug}
+            className="w-full rounded-full bg-[#FF7A00] p-3.5 text-[15px] font-bold text-white disabled:opacity-60"
+          >
+            {submitting ? "Checking…" : "Watch Event →"}
+          </button>
+        </form>
       </div>
     </div>
   );

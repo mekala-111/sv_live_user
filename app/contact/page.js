@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Header from "@/components/Header";
 import FooterSimple from "@/components/FooterSimple";
+import { publicApi } from "@/lib/api";
 
 const CONTACT_CARDS = [
   { label: "PHONE", value: "93973 64040", href: "tel:9397364040" },
@@ -20,6 +24,41 @@ const CONTACT_CARDS = [
 const SOCIAL_LINKS = ["Facebook", "Instagram", "YouTube"];
 
 export default function ContactPage() {
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  function update(field) {
+    return (e) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    setSuccess("");
+    try {
+      await publicApi.createContact({
+        name: form.name,
+        email: form.email,
+        phone: form.phone || undefined,
+        message: form.message,
+      });
+      setSuccess("Message sent. We'll get back to you soon.");
+      setForm({ name: "", phone: "", email: "", message: "" });
+    } catch (err) {
+      setError(err.message || "Could not send message");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <div className="bg-[#FFFDF9] text-[#252525]">
       <Header />
@@ -78,34 +117,48 @@ export default function ContactPage() {
               [ Google Map embed ]
             </div>
           </div>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
               <input
                 type="text"
                 placeholder="Name"
+                value={form.name}
+                onChange={update("name")}
+                required
                 className="rounded-[10px] border border-[#E0D3BC] bg-white px-4 py-[13px] text-sm"
               />
               <input
                 type="tel"
                 placeholder="Phone"
+                value={form.phone}
+                onChange={update("phone")}
                 className="rounded-[10px] border border-[#E0D3BC] bg-white px-4 py-[13px] text-sm"
               />
             </div>
             <input
               type="email"
               placeholder="Email"
+              value={form.email}
+              onChange={update("email")}
+              required
               className="rounded-[10px] border border-[#E0D3BC] bg-white px-4 py-[13px] text-sm"
             />
             <textarea
               placeholder="Your message"
               rows={4}
+              value={form.message}
+              onChange={update("message")}
+              required
               className="resize-y rounded-[10px] border border-[#E0D3BC] bg-white px-4 py-[13px] text-sm"
             />
+            {error ? <p className="m-0 text-sm text-[#F52222]">{error}</p> : null}
+            {success ? <p className="m-0 text-sm text-green-700">{success}</p> : null}
             <button
-              type="button"
-              className="rounded-full bg-[#FF7A00] p-[15px] text-[15px] font-bold text-white"
+              type="submit"
+              disabled={submitting}
+              className="rounded-full bg-[#FF7A00] p-[15px] text-[15px] font-bold text-white disabled:opacity-60"
             >
-              Send Message →
+              {submitting ? "Sending…" : "Send Message →"}
             </button>
           </form>
         </div>

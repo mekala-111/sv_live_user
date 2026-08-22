@@ -1,81 +1,71 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import FooterSimple from "@/components/FooterSimple";
+import { publicApi } from "@/lib/api";
+import { planFeatureList } from "@/lib/event-helpers";
 
-const PLANS = [
+const CARD_STYLES = [
   {
-    name: "Essential",
-    tagline: "For small events",
     bg: "#FFFFFF",
     border: "#F0E2CC",
     text: "#252525",
     subtext: "#6B6B6B",
     btnBg: "#FFF4E8",
     btnText: "#252525",
-    cta: "Get a Quote",
-    features: [
-      "1-2 cameras",
-      "Single-platform streaming",
-      "Basic recording",
-      "Up to 4 hours coverage",
-    ],
   },
   {
-    name: "Professional",
-    tagline: "Weddings & corporate events",
     bg: "#FF7A00",
     border: "#FF7A00",
     text: "#FFFFFF",
     subtext: "rgba(255,255,255,0.9)",
     btnBg: "#FFFFFF",
     btnText: "#FF7A00",
-    cta: "Get a Quote",
-    features: [
-      "3-4 cameras",
-      "Multi-platform streaming",
-      "Cloud recording",
-      "Full-day coverage",
-      "Dedicated technician",
-    ],
   },
   {
-    name: "Premium",
-    tagline: "For large events",
     bg: "#FFFFFF",
     border: "#F0E2CC",
     text: "#252525",
     subtext: "#6B6B6B",
     btnBg: "#FFF4E8",
     btnText: "#252525",
-    cta: "Get a Quote",
-    features: [
-      "Up to 8 cameras",
-      "Drone coverage included",
-      "LED screen add-on",
-      "Private + public streaming",
-      "24/7 on-call support",
-    ],
   },
   {
-    name: "Custom",
-    tagline: "Enterprise requirements",
     bg: "#FFF4E8",
     border: "#F0E2CC",
     text: "#252525",
     subtext: "#6B6B6B",
     btnBg: "#252525",
     btnText: "#FFFFFF",
-    cta: "Contact Sales",
-    features: [
-      "Fully tailored setup",
-      "Multi-day / multi-venue",
-      "Custom branding & overlays",
-      "Dedicated account manager",
-    ],
   },
 ];
 
-export default function PricingPage() {
+async function loadPlans() {
+  try {
+    const data = await publicApi.listPricing();
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function formatPrice(plan) {
+  if (!plan?.price && plan?.price !== 0) return null;
+  if (Number(plan.price) === 0) return "Custom";
+  const currency = plan.currency || "INR";
+  try {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency,
+      maximumFractionDigits: 0,
+    }).format(plan.price);
+  } catch {
+    return `${currency} ${plan.price}`;
+  }
+}
+
+export default async function PricingPage() {
+  const plans = await loadPlans();
+
   return (
     <div className="bg-[#FFFDF9] text-[#252525]">
       <Header />
@@ -94,46 +84,73 @@ export default function PricingPage() {
       </section>
 
       <section className="px-12 pb-[100px] pt-10 max-lg:px-6">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-4 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {PLANS.map((plan) => (
-            <div
-              key={plan.name}
-              className="rounded-[18px] px-6 py-[30px]"
-              style={{ background: plan.bg, border: `1px solid ${plan.border}` }}
-            >
-              <div
-                className="font-heading mb-1.5 text-[19px] font-semibold"
-                style={{ color: plan.text }}
-              >
-                {plan.name}
-              </div>
-              <div
-                className="mb-5 text-[13px]"
-                style={{ color: plan.subtext }}
-              >
-                {plan.tagline}
-              </div>
-              <div className="mb-6 flex flex-col gap-2.5">
-                {plan.features.map((feature) => (
+        {plans.length === 0 ? (
+          <p className="m-0 text-center text-[15px] text-[#6B6B6B]">
+            Pricing plans are unavailable right now.{" "}
+            <Link href="/book" className="font-semibold text-[#FF7A00]">
+              Request a quote
+            </Link>
+            .
+          </p>
+        ) : (
+          <div className="mx-auto grid max-w-[1200px] grid-cols-4 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
+            {plans.map((plan, index) => {
+              const style = CARD_STYLES[index % CARD_STYLES.length];
+              const features = planFeatureList(plan);
+              const priceLabel = formatPrice(plan);
+              return (
+                <div
+                  key={plan.id || plan.code || plan.name}
+                  className="rounded-[18px] px-6 py-[30px]"
+                  style={{ background: style.bg, border: `1px solid ${style.border}` }}
+                >
                   <div
-                    key={feature}
-                    className="text-[13px]"
-                    style={{ color: plan.subtext }}
+                    className="font-heading mb-1.5 text-[19px] font-semibold"
+                    style={{ color: style.text }}
                   >
-                    ✓ {feature}
+                    {plan.name}
                   </div>
-                ))}
-              </div>
-              <Link
-                href="/book"
-                className="block rounded-full p-3 text-center text-sm font-bold"
-                style={{ background: plan.btnBg, color: plan.btnText }}
-              >
-                {plan.cta}
-              </Link>
-            </div>
-          ))}
-        </div>
+                  <div
+                    className="mb-2 text-[13px]"
+                    style={{ color: style.subtext }}
+                  >
+                    {plan.billingPeriod
+                      ? `${String(plan.billingPeriod).charAt(0).toUpperCase()}${String(plan.billingPeriod).slice(1)} plan`
+                      : "Event plan"}
+                  </div>
+                  {priceLabel ? (
+                    <div
+                      className="mb-5 text-[22px] font-bold"
+                      style={{ color: style.text }}
+                    >
+                      {priceLabel}
+                    </div>
+                  ) : (
+                    <div className="mb-5" />
+                  )}
+                  <div className="mb-6 flex flex-col gap-2.5">
+                    {features.map((feature) => (
+                      <div
+                        key={feature}
+                        className="text-[13px]"
+                        style={{ color: style.subtext }}
+                      >
+                        ✓ {feature}
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    href="/book"
+                    className="block rounded-full p-3 text-center text-sm font-bold"
+                    style={{ background: style.btnBg, color: style.btnText }}
+                  >
+                    {Number(plan.price) === 0 ? "Contact Sales" : "Get a Quote"}
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       <FooterSimple />

@@ -1,5 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { authApi } from "@/lib/api";
+import { clearSession, getRefreshToken, getUser } from "@/lib/auth-client";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -11,6 +16,23 @@ const NAV_ITEMS = [
 ];
 
 export default function Header({ active }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    setUser(getUser());
+  }, []);
+
+  async function handleLogout() {
+    const refreshToken = getRefreshToken();
+    try {
+      if (refreshToken) await authApi.logout(refreshToken);
+    } catch {
+      /* ignore logout API errors */
+    }
+    clearSession();
+    setUser(null);
+  }
+
   return (
     <header className="relative z-50 flex items-center justify-between border-b border-[#F0E2CC] bg-[#FFFDF9] px-12 py-[18px] max-lg:px-6 max-sm:px-4">
       <Link href="/" className="shrink-0">
@@ -64,6 +86,27 @@ export default function Header({ active }) {
               {item.label}
             </Link>
           ))}
+          {user ? (
+            <>
+              <div className="border-b border-white/10 py-[18px] text-[15px] font-semibold text-[#FFB000]">
+                {user.name || user.email}
+              </div>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="border-b border-white/10 py-[18px] text-left text-[15px] font-semibold text-white"
+              >
+                Log out
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/login"
+              className="border-b border-white/10 py-[18px] text-[15px] font-semibold text-white hover:text-white"
+            >
+              Log in
+            </Link>
+          )}
         </nav>
         <div className="p-6 pb-8">
           <Link
@@ -90,12 +133,33 @@ export default function Header({ active }) {
           </Link>
         ))}
       </nav>
-      <Link
-        href="/book"
-        className="hidden items-center gap-2 rounded-full bg-gradient-to-br from-[#FFB000] to-[#FF7A00] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(255,176,0,0.35)] hover:text-white lg:inline-flex"
-      >
-        Book Your Event →
-      </Link>
+
+      <div className="hidden items-center gap-4 lg:flex">
+        {user ? (
+          <>
+            <span className="text-sm font-semibold text-[#252525]">
+              {user.name || user.email}
+            </span>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="text-sm font-semibold text-[#FF7A00]"
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <Link href="/login" className="text-sm font-semibold text-[#252525] hover:text-[#E56D00]">
+            Log in
+          </Link>
+        )}
+        <Link
+          href="/book"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#FFB000] to-[#FF7A00] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(255,176,0,0.35)] hover:text-white"
+        >
+          Book Your Event →
+        </Link>
+      </div>
     </header>
   );
 }

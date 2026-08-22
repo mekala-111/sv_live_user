@@ -2,63 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { publicApi } from "@/lib/api";
+import { asEventList, coverSrc, formatEventDate } from "@/lib/event-helpers";
 
 const STATS = [
   { value: "1500+", label: "Events Delivered" },
   { value: "500+", label: "Happy Clients" },
   { value: "10+", label: "Years Experience" },
   { value: "24/7", label: "Support" },
-];
-
-const LIVE_EVENTS = [
-  {
-    image: "/uploads/Portfolio.png",
-    alt: "Wedding ceremony live coverage",
-    category: "WEDDING",
-    title: "Rahul & Priya — Wedding Ceremony",
-    location: "Hyderabad",
-    viewers: "2,340",
-  },
-  {
-    image: "/uploads/event-coverage.png",
-    alt: "Concert stage with confetti and LED walls",
-    category: "CONCERT",
-    title: "Summer Beats Music Festival",
-    location: "Vijayawada",
-    viewers: "8,120",
-  },
-  {
-    image: "/uploads/liveStreaming.png",
-    alt: "Multi-camera production control room",
-    category: "CORPORATE",
-    title: "Annual Leadership Summit",
-    location: "Bengaluru",
-    viewers: "640",
-  },
-];
-
-const UPCOMING_EVENTS = [
-  {
-    day: "22",
-    month: "AUG",
-    category: "SPIRITUAL",
-    title: "Ganesh Chaturthi Celebrations",
-    location: "Vijayawada",
-  },
-  {
-    day: "30",
-    month: "AUG",
-    category: "CORPORATE",
-    title: "Product Launch — TechNova",
-    location: "Hyderabad",
-  },
-  {
-    day: "06",
-    month: "SEP",
-    category: "WEDDING",
-    title: "Anil & Divya — Wedding Live",
-    location: "Guntur",
-  },
 ];
 
 const SERVICES = [
@@ -109,7 +60,22 @@ const WHY_POINTS = [
   { title: "24/7 Support", desc: "On-call technical crew on event day." },
 ];
 
-export default function HomePage() {
+async function loadHomeEvents() {
+  try {
+    const data = await publicApi.listEvents({ limit: 50 });
+    const events = asEventList(data);
+    return {
+      live: events.filter((e) => e.status === "LIVE"),
+      upcoming: events.filter((e) => e.status === "UPCOMING"),
+    };
+  } catch {
+    return { live: [], upcoming: [] };
+  }
+}
+
+export default async function HomePage() {
+  const { live: LIVE_EVENTS, upcoming: UPCOMING_EVENTS } = await loadHomeEvents();
+
   return (
     <div className="overflow-x-clip bg-[#FFFDF9] text-[#252525]">
       <Header active="Home" />
@@ -127,7 +93,7 @@ export default function HomePage() {
         <div className="relative z-[2] max-w-[640px] px-12 pb-[60px] pt-10 max-lg:px-6 max-sm:px-4 max-sm:pb-10">
           <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-[#F52222] bg-[#FFE4C7] px-3.5 py-1.5 text-xs font-bold tracking-wide text-[#F52222]">
             <span className="inline-block h-[7px] w-[7px] shrink-0 rounded-full bg-[#F52222]" />
-            LIVE NOW · 3 EVENTS STREAMING
+            LIVE NOW · {LIVE_EVENTS.length} EVENT{LIVE_EVENTS.length === 1 ? "" : "S"} STREAMING
           </div>
           <h1 className="font-heading m-0 mb-5 text-[56px] font-bold uppercase leading-[1.05] text-[#252525] max-sm:text-[32px]">
             Every Moment.
@@ -178,42 +144,49 @@ export default function HomePage() {
             View all live events →
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {LIVE_EVENTS.map((ev) => (
-            <div
-              key={ev.title}
-              className="overflow-hidden rounded-2xl border border-[#F0E2CC] bg-white shadow-[0_2px_10px_rgba(37,37,37,0.05)]"
-            >
-              <div className="relative h-[180px]">
-                <Image src={ev.image} alt={ev.alt} fill className="object-cover" />
-                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-[#F52222] px-2.5 py-1 text-[11px] font-bold tracking-wide text-white">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                  LIVE
+        {LIVE_EVENTS.length === 0 ? (
+          <p className="m-0 text-[15px] text-[#6B6B6B]">No live events right now. Check back soon.</p>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {LIVE_EVENTS.map((ev) => (
+              <div
+                key={ev.eventSlug || ev.id}
+                className="overflow-hidden rounded-2xl border border-[#F0E2CC] bg-white shadow-[0_2px_10px_rgba(37,37,37,0.05)]"
+              >
+                <div className="relative h-[180px]">
+                  <Image
+                    src={coverSrc(ev.coverImage)}
+                    alt={ev.eventName || "Live event"}
+                    fill
+                    unoptimized={Boolean(ev.coverImage?.startsWith("http"))}
+                    className="object-cover"
+                  />
+                  <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-[#F52222] px-2.5 py-1 text-[11px] font-bold tracking-wide text-white">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                    LIVE
+                  </div>
                 </div>
-                <div className="absolute bottom-3 right-3 rounded-full bg-[rgba(37,37,37,0.65)] px-2.5 py-1 text-xs font-semibold text-white">
-                  👁 {ev.viewers} watching
+                <div className="p-5">
+                  <div className="mb-1.5 text-xs font-bold tracking-wide text-[#FF7A00]">
+                    {(ev.eventType || "EVENT").toUpperCase()}
+                  </div>
+                  <div className="font-heading mb-2 text-[19px] font-semibold">
+                    {ev.eventName}
+                  </div>
+                  <div className="mb-4 text-[13px] text-[#6B6B6B]">
+                    {ev.location || "Location TBA"}
+                  </div>
+                  <Link
+                    href={`/event/${ev.eventSlug}`}
+                    className="block rounded-[10px] bg-[#FFE4C7] p-3 text-center text-sm font-semibold text-[#252525] hover:text-[#252525]"
+                  >
+                    Watch Live
+                  </Link>
                 </div>
               </div>
-              <div className="p-5">
-                <div className="mb-1.5 text-xs font-bold tracking-wide text-[#FF7A00]">
-                  {ev.category}
-                </div>
-                <div className="font-heading mb-2 text-[19px] font-semibold">
-                  {ev.title}
-                </div>
-                <div className="mb-4 text-[13px] text-[#6B6B6B]">
-                  {ev.location}
-                </div>
-                <Link
-                  href="/event/rahul-priya-wedding"
-                  className="block rounded-[10px] bg-[#FFE4C7] p-3 text-center text-sm font-semibold text-[#252525] hover:text-[#252525]"
-                >
-                  Watch Live
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* FEATURED EVENTS */}
@@ -226,37 +199,44 @@ export default function HomePage() {
             View all events →
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {UPCOMING_EVENTS.map((ev) => (
-            <div
-              key={ev.title}
-              className="flex gap-[18px] rounded-2xl border border-[#F0E2CC] bg-white p-5"
-            >
-              <div className="w-16 flex-shrink-0 rounded-[10px] bg-[#FFF4E8] py-2.5 text-center">
-                <div className="font-heading text-[22px] font-bold text-[#FF7A00]">
-                  {ev.day}
+        {UPCOMING_EVENTS.length === 0 ? (
+          <p className="m-0 text-[15px] text-[#6B6B6B]">No upcoming events listed yet.</p>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {UPCOMING_EVENTS.map((ev) => {
+              const date = formatEventDate(ev.eventDate);
+              return (
+                <div
+                  key={ev.eventSlug || ev.id}
+                  className="flex gap-[18px] rounded-2xl border border-[#F0E2CC] bg-white p-5"
+                >
+                  <div className="w-16 flex-shrink-0 rounded-[10px] bg-[#FFF4E8] py-2.5 text-center">
+                    <div className="font-heading text-[22px] font-bold text-[#FF7A00]">
+                      {date?.day || "--"}
+                    </div>
+                    <div className="text-[11px] tracking-wide text-[#6B6B6B]">
+                      {date?.month || "TBA"}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="mb-1.5 text-[11px] font-bold tracking-wide text-[#C98700]">
+                      {(ev.eventType || "EVENT").toUpperCase()}
+                    </div>
+                    <div className="font-heading mb-1.5 text-[17px] font-semibold">
+                      {ev.eventName}
+                    </div>
+                    <div className="mb-3 text-[13px] text-[#6B6B6B]">
+                      {ev.location || "Location TBA"}
+                    </div>
+                    <Link href={`/event/${ev.eventSlug}`} className="text-[13px] font-bold">
+                      View event →
+                    </Link>
+                  </div>
                 </div>
-                <div className="text-[11px] tracking-wide text-[#6B6B6B]">
-                  {ev.month}
-                </div>
-              </div>
-              <div>
-                <div className="mb-1.5 text-[11px] font-bold tracking-wide text-[#C98700]">
-                  {ev.category}
-                </div>
-                <div className="font-heading mb-1.5 text-[17px] font-semibold">
-                  {ev.title}
-                </div>
-                <div className="mb-3 text-[13px] text-[#6B6B6B]">
-                  {ev.location}
-                </div>
-                <a href="#" className="text-[13px] font-bold">
-                  Set Reminder →
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       {/* SERVICES */}

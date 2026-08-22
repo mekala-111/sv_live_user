@@ -1,6 +1,23 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { publicApi } from "@/lib/api";
 
-export default function MaintenancePage() {
+export default async function MaintenancePage() {
+  let maintenance = false;
+  try {
+    const settings = await publicApi.getSettings();
+    maintenance =
+      settings?.maintenance_mode === true ||
+      settings?.maintenance_mode === "true" ||
+      settings?.maintenance_mode === 1;
+  } catch {
+    maintenance = false;
+  }
+
+  if (!maintenance) {
+    redirect("/");
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#FFFDF9] p-6 text-center text-[#252525]">
       <Image

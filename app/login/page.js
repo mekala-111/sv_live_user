@@ -1,7 +1,38 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { authApi } from "@/lib/api";
+import { saveSession } from "@/lib/auth-client";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    try {
+      const data = await authApi.login(email, password);
+      saveSession({
+        accessToken: data.accessToken,
+        refreshToken: data.refreshToken,
+        user: data.user,
+      });
+      router.push("/events");
+    } catch (err) {
+      setError(err.message || "Login failed");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#FFF4E8] p-4 text-[#252525]">
       <div className="w-full max-w-[400px] rounded-[20px] border border-[#F0E2CC] bg-white p-6 sm:p-10">
@@ -18,14 +49,17 @@ export default function LoginPage() {
         <h1 className="font-heading m-0 mb-6 text-center text-2xl font-bold uppercase">
           Welcome Back
         </h1>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div>
             <label className="mb-1.5 block text-[13px] font-semibold">
-              Email or Phone
+              Email
             </label>
             <input
-              type="text"
+              type="email"
               placeholder="you@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="w-full rounded-[10px] border border-[#E0D3BC] px-3.5 py-3 text-sm"
             />
           </div>
@@ -36,6 +70,9 @@ export default function LoginPage() {
             <input
               type="password"
               placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
               className="w-full rounded-[10px] border border-[#E0D3BC] px-3.5 py-3 text-sm"
             />
           </div>
@@ -47,21 +84,13 @@ export default function LoginPage() {
               Forgot password?
             </Link>
           </div>
+          {error ? <p className="m-0 text-sm text-[#F52222]">{error}</p> : null}
           <button
-            type="button"
-            className="rounded-full bg-[#FF7A00] py-[13px] text-[15px] font-bold text-white"
+            type="submit"
+            disabled={submitting}
+            className="rounded-full bg-[#FF7A00] py-[13px] text-[15px] font-bold text-white disabled:opacity-60"
           >
-            Log In
-          </button>
-          <div className="my-1.5 flex items-center gap-2.5 text-xs text-[#6B6B6B]">
-            <div className="h-px flex-1 bg-[#F0E2CC]" /> OR
-            <div className="h-px flex-1 bg-[#F0E2CC]" />
-          </div>
-          <button
-            type="button"
-            className="rounded-full border border-[#E0D3BC] bg-white py-3 text-sm font-semibold text-[#252525]"
-          >
-            Continue with Google
+            {submitting ? "Logging in…" : "Log In"}
           </button>
         </form>
         <div className="mt-5 text-center text-[13px] text-[#6B6B6B]">

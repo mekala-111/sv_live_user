@@ -1,0 +1,85 @@
+/* [project]/app/event/[slug]/event-page.module.css [app-client] (css) */
+.event-page-module__-7ah5W__stateScreen {
+  color: #f7f1e6;
+  background: #0b0908;
+  place-items: center;
+  min-height: 100vh;
+  font-size: .95rem;
+  display: grid;
+}
+
+.event-page-module__-7ah5W__lockScreen {
+  color: #f7f1e6;
+  background: radial-gradient(70% 50% at 50% 0, #e8c36a2e, #0000 60%), #0b0908;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: grid;
+}
+
+.event-page-module__-7ah5W__lockCard {
+  text-align: center;
+  background: #120e0ce6;
+  border: 1px solid #e8c36a47;
+  border-radius: 18px;
+  width: min(100%, 420px);
+  padding: 2rem 1.5rem;
+}
+
+.event-page-module__-7ah5W__lockEyebrow {
+  letter-spacing: .18em;
+  color: #e8c36a;
+  margin-bottom: .6rem;
+  font-size: .72rem;
+}
+
+.event-page-module__-7ah5W__lockCard h1 {
+  color: #e8c36a;
+  margin: 0 0 .5rem;
+  font-family: Georgia, Times New Roman, serif;
+  font-size: 1.6rem;
+}
+
+.event-page-module__-7ah5W__lockCard p {
+  color: #f7f1e6b3;
+  margin: 0 0 1.25rem;
+  font-size: .9rem;
+}
+
+.event-page-module__-7ah5W__lockCard form {
+  gap: .75rem;
+  display: grid;
+}
+
+.event-page-module__-7ah5W__lockCard input {
+  color: #fff;
+  text-align: center;
+  letter-spacing: .2em;
+  background: #1a1512;
+  border: 1px solid #e8c36a59;
+  border-radius: 12px;
+  width: 100%;
+  padding: .85rem;
+  font-size: 1.1rem;
+}
+
+.event-page-module__-7ah5W__lockCard button {
+  color: #1a1208;
+  cursor: pointer;
+  background: #e8c36a;
+  border: 0;
+  border-radius: 999px;
+  padding: .85rem 1rem;
+  font-weight: 700;
+}
+
+.event-page-module__-7ah5W__lockCard button:disabled {
+  opacity: .6;
+}
+
+.event-page-module__-7ah5W__error {
+  color: #ff6b6b !important;
+  margin: 0 !important;
+}
+
+/*# sourceMappingURL=app_event_%5Bslug%5D_event-page_module_css_1igg3k2._.single.css.map*/
