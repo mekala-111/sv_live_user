@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@sv-themes": ["./themes/index.ts"],
+      "@sv-themes/*": ["./themes/*"]
     }
   }
 }
