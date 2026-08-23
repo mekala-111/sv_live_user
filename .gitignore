@@ -15,7 +15,11 @@
 
 # next.js
 /.next/
+**/.next/
 /out/
+
+# accidental nested build output (should not be committed)
+/sv_live_user/
 
 # production
 /build
